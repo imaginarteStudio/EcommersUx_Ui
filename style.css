@@ -247,7 +247,7 @@ header li > a {
 }
 
 li > a:hover {
-  color: var(--border-color);
+  color: var(--light-text-color);
 }
 
 /* HEADER TOP */
@@ -423,6 +423,14 @@ nav .fly-item {
   font-size: var(--font-small);
   height: 46px;
   align-items: center;
+}
+
+.dpt-menu .has-child:hover ul{
+  display: block;
+}
+
+.dpt-menu .has-child li a:hover{
+  text-decoration: underline;
 }
 
 /* HEADER SEARCH FORM */
@@ -614,7 +622,7 @@ form.search button:hover {
     background-size: auto;
   }
 
-  .dpt-menu .mega{
+  .mega{
     display: block;
   }
 
@@ -643,7 +651,6 @@ form.search button:hover {
   .dpt-menu .mega{
     width: auto;
     min-width: var(--percent100);
-    /* display: flex; */
   }
  
   .dpt-menu .has-child:hover .mega{
