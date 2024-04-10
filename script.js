@@ -44,58 +44,67 @@ function toggle(e) {
 }
 
 /* SLIDER */
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper(".swiper", {
   loop: true,
 
   pagination: {
-    el: '.swiper-pagination',
+    el: ".swiper-pagination",
   },
 });
 
 //show search
 
-const searchButton = document.querySelector('.t-search'),
-  tClose = document.querySelector('.search-close'),
-  showClass = document.querySelector('.site');
+const searchButton = document.querySelector(".t-search"),
+  tClose = document.querySelector(".search-close"),
+  showClass = document.querySelector(".site");
 
-searchButton.addEventListener('click', function () {
-  showClass.classList.toggle('showsearch');
-})
+searchButton.addEventListener("click", function () {
+  showClass.classList.toggle("showsearch");
+});
 
-tClose.addEventListener('click', function () {
-  showClass.classList.remove('showsearch');
-})
+tClose.addEventListener("click", function () {
+  showClass.classList.remove("showsearch");
+});
 
 //show dpt menu
 
-const dptButton = document.querySelector('.dpt-cat .dpt-trigger'),
-  dptClass = document.querySelector('.site');
-dptButton.addEventListener('click', function () {
-  dptClass.classList.toggle('showdpt');
-})
+const dptButton = document.querySelector(".dpt-cat .dpt-trigger"),
+  dptClass = document.querySelector(".site");
+dptButton.addEventListener("click", function () {
+  dptClass.classList.toggle("showdpt");
+});
 
 //products image slider
-var productThumb = new Swiper ('.small-image', {
+var productThumb = new Swiper(".small-image", {
   loop: true,
   spaceBetween: 10,
   slidesPerView: 3,
   freeMode: true,
   watchSlidesProgress: true,
-  breakpoints:{
-    481:{
+  breakpoints: {
+    481: {
       spaceBetween: 32,
-    }
-  }
+    },
+  },
 });
 
-var productBig = new Swiper ('.big-image', {
+var productBig = new Swiper(".big-image", {
   loop: true,
   autoHeight: true,
-  navigation:{
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
   },
-  thumbs:{
+  thumbs: {
     swiper: productThumb,
-  }
+  },
 });
+
+var stocks = document.querySelectorAll('.products .stock');
+for(let x=0; x<stocks.length; x++){
+  let stock = stocks[x].dataset.stock,
+  available= stocks[x].querySelector('.qty-available').innerHTML,
+  sold = stocks[x].querySelector('.qty-sold').innerHTML,
+  percent = (sold/stock)*100;
+  stocks[x].querySelector('.available').style.width = percent+'%';
+}
