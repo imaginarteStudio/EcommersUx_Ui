@@ -297,6 +297,11 @@ li > a:hover {
   margin-right: 0.5em;
 }
 
+.logo img {
+  width: 100px; /* ajusta el tamaño según tus necesidades */
+  height: auto; /* mantén la proporción de aspecto */
+}
+
 .logo a {
   font-family: "Poppins";
   font-size: 1.75em;
